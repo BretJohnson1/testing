@@ -8,17 +8,19 @@
 char *_strcat(char *dest, char *src)
 {
 	int i = 0, j = 0;
-
+/** find the end of the destination string*/
 	while (dest[i])
 	{
 		i++;
 	}
+/** concatenate the source string and the destination string*/
 	while (src[j])
 	{
 		dest[i] = src[j];
 		i++;
 		j++;
 	}
+/** add NULL terminator and return pointer to new string*/
 	dest[i] = '\0';
 	return (dest);
 }
@@ -31,12 +33,14 @@ char *_strcat(char *dest, char *src)
 char *_strcpy(char *dest, char *src)
 {
 	int a = 0;
-
+/** copy characters from src to dest until NULL*/
 	while (*(src + a))
 	{
+/** copy characters and increment through*/
 		*(dest + a) = *(src + a);
 		a++;
 	}
+/** add NULL to mark end of string and return pointer to string*/
 	dest[a] = '\0';
 	return (dest);
 }
@@ -49,9 +53,10 @@ char *_strcpy(char *dest, char *src)
 int _strcmp(char *s1, char *s2)
 {
 	int i = 0, dif = 0;
-
+/** loop until NULL or characters dont match*/
 	while (s1[i] && s2[i])
 	{
+/** check if the characters of both strings are equal*/
 		if (s1[i] == s2[i])
 		{
 			i++;
@@ -59,10 +64,12 @@ int _strcmp(char *s1, char *s2)
 		}
 		else
 		{
+/** calculate difference in ASCII values*/
 			dif = s1[i] - s2[i];
 			break;
 		}
 	}
+/** return the difference inn ASCII values*/
 	return (dif);
 }
 /**
@@ -73,7 +80,7 @@ int _strcmp(char *s1, char *s2)
 int _strlen(char *s)
 {
 	int a = 0;
-
+/** loop until reaching the NULL terminator*/
 	while (*(s + a) != '\0')
 	{
 		a++;
@@ -90,9 +97,10 @@ int _strlen(char *s)
 int _strncmp(char *s1, char *s2, int n)
 {
 	int i = 0, dif = 0;
-
+/** loop until reaching the end of either strings or until strings are compared*/
 	while (s1[i] && s2[i] && (i < n))
 	{
+/** compare characters at the same index*/
 		if (s1[i] == s2[i])
 		{
 			i++;
@@ -100,9 +108,11 @@ int _strncmp(char *s1, char *s2, int n)
 		}
 		else
 		{
+/** calculate the difference between the characters*/
 			dif = s1[i] - s2[i];
 			break;
 		}
 	}
+/** return the difference between the characters*/
 	return (dif);
 }
